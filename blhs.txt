@@ -1,0 +1,4 @@
+¸ã¸öjs¡£¡£
+function huhu() {
+    return 0;
+}
