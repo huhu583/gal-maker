@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/huhu583/otaku-programer#readme",
   "dependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "css-loader": "^3.6.0",
