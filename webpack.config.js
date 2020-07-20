@@ -61,6 +61,10 @@ module.exports = {
             test: /\.html$/,
             // 处理html文件的img图片,负责引入img,从而能被url-loader处理
             loader: "html-loader"
+        },{
+            test: /(\.js?|jsx?)$/,
+            loader: "babel-loader",
+            exclude: /node_modules/
         }]
     },
     // 插件的配置
@@ -74,4 +78,12 @@ module.exports = {
     ],
     // 模式 开发模式'development' 生产模式'production'
     mode: 'development',
+    resolve: {
+        // 引入react组件时省略jsx后缀。从前到后,补全后缀名
+        extensions: ['.js','.jsx','.json'],
+        alias: {
+            // 配置@来表示根目录
+            '@': resolve(__dirname, './src') 
+        }
+    }
 }
