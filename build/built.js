@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/JS/main.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1031,14 +1031,25 @@ eval("__webpack_require__(/*! ./es6.array.iterator */ \"./node_modules/core-js/l
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/CSS/index.less":
-/*!*********************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/CSS/index.less ***!
-  \*********************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?modules!./node_modules/less-loader/dist/cjs.js!./src/index.less":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?modules!./node_modules/less-loader/dist/cjs.js!./src/index.less ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"html body {\\n  height: 100%;\\n  width: 100%;\\n  background-color: aqua;\\n  background-size: 100% 100%;\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/CSS/index.less?./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nvar ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ./bg.png */ \"./src/bg.png\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\nvar ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);\n// Module\nexports.push([module.i, \"html {\\n  height: 100%;\\n  width: 100%;\\n  margin: 0px;\\n}\\nbody {\\n  height: 100%;\\n  width: 100%;\\n  margin: 0px;\\n}\\n#main {\\n  height: 100%;\\n  width: 100%;\\n  background-image: url(\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \");\\n  background-size: 100% 100%;\\n  background-repeat: no-repeat;\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/index.less?./node_modules/css-loader/dist/cjs.js?modules!./node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?modules!./node_modules/less-loader/dist/cjs.js!./src/pages/Menu/Menu.less":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?modules!./node_modules/less-loader/dist/cjs.js!./src/pages/Menu/Menu.less ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"._1-A2cIiqzGxgdwrCPmMNEL {\\n  width: 350px;\\n  height: 530px;\\n  border: 1px solid #000;\\n}\\n\", \"\"]);\n// Exports\nexports.locals = {\n\t\"menu-list\": \"_1-A2cIiqzGxgdwrCPmMNEL\"\n};\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/pages/Menu/Menu.less?./node_modules/css-loader/dist/cjs.js?modules!./node_modules/less-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -1051,6 +1062,18 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 
 "use strict";
 eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\n// eslint-disable-next-line func-names\nmodule.exports = function (useSourceMap) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = cssWithMappingToString(item, useSourceMap);\n\n      if (item[2]) {\n        return \"@media \".concat(item[2], \" {\").concat(content, \"}\");\n      }\n\n      return content;\n    }).join('');\n  }; // import a list of modules into the list\n  // eslint-disable-next-line func-names\n\n\n  list.i = function (modules, mediaQuery, dedupe) {\n    if (typeof modules === 'string') {\n      // eslint-disable-next-line no-param-reassign\n      modules = [[null, modules, '']];\n    }\n\n    var alreadyImportedModules = {};\n\n    if (dedupe) {\n      for (var i = 0; i < this.length; i++) {\n        // eslint-disable-next-line prefer-destructuring\n        var id = this[i][0];\n\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n\n    for (var _i = 0; _i < modules.length; _i++) {\n      var item = [].concat(modules[_i]);\n\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        // eslint-disable-next-line no-continue\n        continue;\n      }\n\n      if (mediaQuery) {\n        if (!item[2]) {\n          item[2] = mediaQuery;\n        } else {\n          item[2] = \"\".concat(mediaQuery, \" and \").concat(item[2]);\n        }\n      }\n\n      list.push(item);\n    }\n  };\n\n  return list;\n};\n\nfunction cssWithMappingToString(item, useSourceMap) {\n  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring\n\n  var cssMapping = item[3];\n\n  if (!cssMapping) {\n    return content;\n  }\n\n  if (useSourceMap && typeof btoa === 'function') {\n    var sourceMapping = toComment(cssMapping);\n    var sourceURLs = cssMapping.sources.map(function (source) {\n      return \"/*# sourceURL=\".concat(cssMapping.sourceRoot || '').concat(source, \" */\");\n    });\n    return [content].concat(sourceURLs).concat([sourceMapping]).join('\\n');\n  }\n\n  return [content].join('\\n');\n} // Adapted from convert-source-map (MIT)\n\n\nfunction toComment(sourceMap) {\n  // eslint-disable-next-line no-undef\n  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));\n  var data = \"sourceMappingURL=data:application/json;charset=utf-8;base64,\".concat(base64);\n  return \"/*# \".concat(data, \" */\");\n}\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nmodule.exports = function (url, options) {\n  if (!options) {\n    // eslint-disable-next-line no-param-reassign\n    options = {};\n  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign\n\n\n  url = url && url.__esModule ? url.default : url;\n\n  if (typeof url !== 'string') {\n    return url;\n  } // If url is already wrapped in quotes, remove them\n\n\n  if (/^['\"].*['\"]$/.test(url)) {\n    // eslint-disable-next-line no-param-reassign\n    url = url.slice(1, -1);\n  }\n\n  if (options.hash) {\n    // eslint-disable-next-line no-param-reassign\n    url += options.hash;\n  } // Should url be wrapped?\n  // See https://drafts.csswg.org/css-values-3/#urls\n\n\n  if (/[\"'() \\t\\n]/.test(url) || options.needQuotes) {\n    return \"\\\"\".concat(url.replace(/\"/g, '\\\\\"').replace(/\\n/g, '\\\\n'), \"\\\"\");\n  }\n\n  return url;\n};\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/getUrl.js?");
 
 /***/ }),
 
@@ -1198,61 +1221,60 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
-/***/ "./src/CSS/index.less":
-/*!****************************!*\
-  !*** ./src/CSS/index.less ***!
-  \****************************/
+/***/ "./src/bg.png":
+/*!********************!*\
+  !*** ./src/bg.png ***!
+  \********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./index.less */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/CSS/index.less\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\n\n\nmodule.exports = content.locals || {};\n\n//# sourceURL=webpack:///./src/CSS/index.less?");
+eval("module.exports = __webpack_require__.p + \"7f138148be.png\";\n\n//# sourceURL=webpack:///./src/bg.png?");
 
 /***/ }),
 
-/***/ "./src/JS/data.json":
-/*!**************************!*\
-  !*** ./src/JS/data.json ***!
-  \**************************/
-/*! exports provided: name, age, default */
-/***/ (function(module) {
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = JSON.parse(\"{\\\"name\\\":\\\"huhu\\\",\\\"age\\\":18}\");\n\n//# sourceURL=webpack:///./src/JS/data.json?");
+"use strict";
+eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\n__webpack_require__(/*! @/index.less */ \"./src/index.less\");\n\nvar _Menu = __webpack_require__(/*! @/pages/Menu/Menu */ \"./src/pages/Menu/Menu.jsx\");\n\nvar _Menu2 = _interopRequireDefault(_Menu);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// import Hello from '@/components/Hello'\n// import HuhuComponent from \"./components/Huhu\"\n\n// function add(x, y) {\n//     return x + y;\n// }\n// console.log(add(1, 2));\n\n// // 使用react创建虚拟DOM元素\n// const helloWorld = React.createElement(\"div\", null, \"hello world\");\n// ReactDOM.render(helloWorld, document.getElementById(\"rq\"));\n\n// // 使用JSX(需要先引入babel)\n// let a = \"helloJSXX\"\n// const helloJSX = <div id=\"mydiv\">{a}</div>\n// ReactDOM.render(helloJSX, document.getElementById(\"rq\"));\n// let arr = [\"div1\", \"div2\"];\n// const emptyArr = [];\n// arr.forEach(item => {\n//     const temp = <p key={item}>{item}</p>\n//     emptyArr.push(temp)\n// })\n\n// ReactDOM.render(emptyArr, document.getElementById(\"rq1\"));\n// // react需要把key 添加给被map的元素\n// const result = arr.map((item, index) => {\n//     return <h1 key={index}>{item}</h1>\n// })\n// ReactDOM.render(result, document.getElementById(\"rq2\"));\n\n\n// let hero = {\n//     name: \"huhu583\",\n//     age: 12\n// };\n// // 展开运算符\n// ReactDOM.render(<Hello {...hero}></Hello>, document.getElementById(\"zj\"));\n\n// ReactDOM.render(<HuhuComponent {...hero}></HuhuComponent>, document.getElementById(\"zj1\"));\n\n// import data from './config.json'\n// webpack入口文件\n_reactDom2.default.render(_react2.default.createElement(_Menu2.default, null), document.getElementById(\"main\"));\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/JS/main.js":
+/***/ "./src/index.less":
 /*!************************!*\
-  !*** ./src/JS/main.js ***!
+  !*** ./src/index.less ***!
   \************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _data = __webpack_require__(/*! ./data.json */ \"./src/JS/data.json\");\n\nvar _data2 = _interopRequireDefault(_data);\n\n__webpack_require__(/*! ../CSS/index.less */ \"./src/CSS/index.less\");\n\nvar _Hello = __webpack_require__(/*! @/components/Hello */ \"./src/components/Hello.jsx\");\n\nvar _Hello2 = _interopRequireDefault(_Hello);\n\nvar _Huhu = __webpack_require__(/*! ../components/Huhu */ \"./src/components/Huhu.jsx\");\n\nvar _Huhu2 = _interopRequireDefault(_Huhu);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// webpack入口文件\nconsole.log(_data2.default);\nconsole.log(\"huhu583\");\n\nfunction add(x, y) {\n    return x + y;\n}\nconsole.log(add(1, 2));\n\n// 使用react创建虚拟DOM元素\nvar helloWorld = _react2.default.createElement(\"div\", null, \"hello world\");\n_reactDom2.default.render(helloWorld, document.getElementById(\"rq\"));\n\n// 使用JSX(需要先引入babel)\nvar a = \"helloJSXX\";\nvar helloJSX = _react2.default.createElement(\n    \"div\",\n    { id: \"mydiv\" },\n    a\n);\n_reactDom2.default.render(helloJSX, document.getElementById(\"rq\"));\nvar arr = [\"div1\", \"div2\"];\nvar emptyArr = [];\narr.forEach(function (item) {\n    var temp = _react2.default.createElement(\n        \"p\",\n        { key: item },\n        item\n    );\n    emptyArr.push(temp);\n});\n\n_reactDom2.default.render(emptyArr, document.getElementById(\"rq1\"));\n// react需要把key 添加给被map的元素\nvar result = arr.map(function (item, index) {\n    return _react2.default.createElement(\n        \"h1\",\n        { key: index },\n        item\n    );\n});\n_reactDom2.default.render(result, document.getElementById(\"rq2\"));\n\nvar hero = {\n    name: \"huhu583\",\n    age: 12\n};\n// 展开运算符\n_reactDom2.default.render(_react2.default.createElement(_Hello2.default, hero), document.getElementById(\"zj\"));\n\n_reactDom2.default.render(_react2.default.createElement(_Huhu2.default, hero), document.getElementById(\"zj1\"));\n\n//# sourceURL=webpack:///./src/JS/main.js?");
+eval("var api = __webpack_require__(/*! ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js?modules!../node_modules/less-loader/dist/cjs.js!./index.less */ \"./node_modules/css-loader/dist/cjs.js?modules!./node_modules/less-loader/dist/cjs.js!./src/index.less\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\n\n\nmodule.exports = content.locals || {};\n\n//# sourceURL=webpack:///./src/index.less?");
 
 /***/ }),
 
-/***/ "./src/components/Hello.jsx":
-/*!**********************************!*\
-  !*** ./src/components/Hello.jsx ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.default = Hello;\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// 组件练习\nfunction Hello(props) {\n    return _react2.default.createElement(\n        \"div\",\n        null,\n        \"\\u6211\\u662F\",\n        props.name,\n        props.age\n    );\n}\n\n// 把组件暴露出去\n// export default Hello\n\n//# sourceURL=webpack:///./src/components/Hello.jsx?");
-
-/***/ }),
-
-/***/ "./src/components/Huhu.jsx":
+/***/ "./src/pages/Menu/Menu.jsx":
 /*!*********************************!*\
-  !*** ./src/components/Huhu.jsx ***!
+  !*** ./src/pages/Menu/Menu.jsx ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ \"./node_modules/babel-runtime/helpers/createClass.js\");\n\nvar _createClass3 = _interopRequireDefault(_createClass2);\n\nvar _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ \"./node_modules/babel-runtime/core-js/object/get-prototype-of.js\");\n\nvar _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);\n\nvar _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ \"./node_modules/babel-runtime/helpers/possibleConstructorReturn.js\");\n\nvar _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);\n\nvar _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ \"./node_modules/babel-runtime/helpers/inherits.js\");\n\nvar _inherits3 = _interopRequireDefault(_inherits2);\n\nvar _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ \"./node_modules/babel-runtime/helpers/classCallCheck.js\");\n\nvar _classCallCheck3 = _interopRequireDefault(_classCallCheck2);\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Huhu =\n// 类中的构造器\nfunction Huhu(name, age) {\n    (0, _classCallCheck3.default)(this, Huhu);\n\n    this.name = name;\n    this.age = age;\n};\n\nHuhu.info = \"huhu是最强的\";\n\nvar Didi = function (_Huhu) {\n    (0, _inherits3.default)(Didi, _Huhu);\n\n    function Didi(name, age, text) {\n        (0, _classCallCheck3.default)(this, Didi);\n\n        var _this = (0, _possibleConstructorReturn3.default)(this, (Didi.__proto__ || (0, _getPrototypeOf2.default)(Didi)).call(this, name, age));\n\n        _this.text = text;\n        return _this;\n    }\n\n    return Didi;\n}(Huhu);\n\n// 使用class创建组件\n\n\nvar HuhuComponent = function (_React$Component) {\n    (0, _inherits3.default)(HuhuComponent, _React$Component);\n\n    function HuhuComponent() {\n        (0, _classCallCheck3.default)(this, HuhuComponent);\n        return (0, _possibleConstructorReturn3.default)(this, (HuhuComponent.__proto__ || (0, _getPrototypeOf2.default)(HuhuComponent)).apply(this, arguments));\n    }\n\n    (0, _createClass3.default)(HuhuComponent, [{\n        key: \"render\",\n\n        // 在组件内部必须有render函数,作用渲染当前组件对应的虚拟dom\n        value: function render() {\n            return _react2.default.createElement(\n                \"div\",\n                null,\n                \"\\u7EC4\\u4EF6\"\n            );\n        }\n    }]);\n    return HuhuComponent;\n}(_react2.default.Component);\n\nexports.default = HuhuComponent;\n\n//# sourceURL=webpack:///./src/components/Huhu.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ \"./node_modules/babel-runtime/core-js/object/get-prototype-of.js\");\n\nvar _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);\n\nvar _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ \"./node_modules/babel-runtime/helpers/classCallCheck.js\");\n\nvar _classCallCheck3 = _interopRequireDefault(_classCallCheck2);\n\nvar _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ \"./node_modules/babel-runtime/helpers/createClass.js\");\n\nvar _createClass3 = _interopRequireDefault(_createClass2);\n\nvar _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ \"./node_modules/babel-runtime/helpers/possibleConstructorReturn.js\");\n\nvar _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);\n\nvar _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ \"./node_modules/babel-runtime/helpers/inherits.js\");\n\nvar _inherits3 = _interopRequireDefault(_inherits2);\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _Menu = __webpack_require__(/*! @/pages/Menu/Menu.less */ \"./src/pages/Menu/Menu.less\");\n\nvar _Menu2 = _interopRequireDefault(_Menu);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Menu = function (_React$Component) {\n    (0, _inherits3.default)(Menu, _React$Component);\n\n    function Menu() {\n        (0, _classCallCheck3.default)(this, Menu);\n        return (0, _possibleConstructorReturn3.default)(this, (Menu.__proto__ || (0, _getPrototypeOf2.default)(Menu)).call(this));\n    }\n\n    (0, _createClass3.default)(Menu, [{\n        key: \"render\",\n        value: function render() {\n            var menuObj = _react2.default.createElement(\n                \"div\",\n                { className: _Menu2.default.menuList },\n                _react2.default.createElement(\n                    \"div\",\n                    null,\n                    \"\\u5F00\\u59CB\\u6E38\\u620F\"\n                ),\n                _react2.default.createElement(\n                    \"div\",\n                    null,\n                    \"\\u7EE7\\u7EED\\u6E38\\u620F\"\n                ),\n                _react2.default.createElement(\n                    \"div\",\n                    null,\n                    \"\\u7CFB\\u7EDF\\u8BBE\\u7F6E\"\n                ),\n                _react2.default.createElement(\n                    \"div\",\n                    null,\n                    \"\\u7ED3\\u675F\\u6E38\\u620F\"\n                )\n            );\n            return menuObj;\n        }\n    }]);\n    return Menu;\n}(_react2.default.Component);\n\nexports.default = Menu;\n\n//# sourceURL=webpack:///./src/pages/Menu/Menu.jsx?");
+
+/***/ }),
+
+/***/ "./src/pages/Menu/Menu.less":
+/*!**********************************!*\
+  !*** ./src/pages/Menu/Menu.less ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js?modules!../../../node_modules/less-loader/dist/cjs.js!./Menu.less */ \"./node_modules/css-loader/dist/cjs.js?modules!./node_modules/less-loader/dist/cjs.js!./src/pages/Menu/Menu.less\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\n\n\nmodule.exports = content.locals || {};\n\n//# sourceURL=webpack:///./src/pages/Menu/Menu.less?");
 
 /***/ })
 

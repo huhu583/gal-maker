@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     // webpack配置
     // 入口
-    entry: './src/JS/main.js',
+    entry: './src/index.js',
     // 输出
     output: {
         // 输出文件名
@@ -35,7 +35,7 @@ module.exports = {
             test: /\.less$/,
             use: [
                 'style-loader',
-                "css-loader",
+                "css-loader?modules",
                 // 将less编译成css文件
                 "less-loader"
             ]
@@ -73,7 +73,7 @@ module.exports = {
         // 
         new HtmlWebpackPlugin({
             // 复制模版文件并引入打包的所有资源
-            template: './src/HTML/index.html'
+            template: './src/index.html'
         })
     ],
     // 模式 开发模式'development' 生产模式'production'
