@@ -1,6 +1,6 @@
 import React from "react"
 import cssObj from "@/pages/Menu/Menu.less"
-console.log(cssObj)
+
 class Menu extends React.Component {
     constructor () {
         super();

@@ -4,6 +4,13 @@ import ReactDOM from "react-dom"
 // import data from './config.json'
 import '@/index.less'
 import Menu from '@/pages/Menu/Menu'
+import Identity from '@/pages/Identity/Identity'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 // import Hello from '@/components/Hello'
 // import HuhuComponent from "./components/Huhu"
@@ -44,5 +51,5 @@ import Menu from '@/pages/Menu/Menu'
 // ReactDOM.render(<Hello {...hero}></Hello>, document.getElementById("zj"));
 
 // ReactDOM.render(<HuhuComponent {...hero}></HuhuComponent>, document.getElementById("zj1"));
-
-ReactDOM.render(<Menu></Menu>, document.getElementById("main"));
+ReactDOM.render(<Identity></Identity>, document.getElementById("main"));
+// ReactDOM.render(<Menu></Menu>, document.getElementById("main"));
