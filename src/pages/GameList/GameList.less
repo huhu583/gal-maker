@@ -5,14 +5,43 @@
     flex-direction: column;
     border: 1px solid #000;
     border-radius: 10px;
-}
 
-.game-list-item {
-    width: 750px;
-    height: 600px;
-    display: flex;
-    flex-shrink: 0;
-    flex-direction: column;
-    border: 1px solid #000;
-    margin: 10px;
+    .game-list-item {
+        width: 750px;
+        height: 600px;
+        display: flex;
+        flex-shrink: 0;
+        flex-direction: column;
+        border: 1px solid #000;
+        margin: 10px;
+        align-items: center;
+    
+        // 游戏标题
+        .game-list-title {
+            font-size: 20px;
+            height: 40px;
+            width: auto;    
+            max-width: 600px;
+            white-space: nowrap;
+        }
+
+        .game-list-tip {
+            height: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .game-list-tip-item {
+                color: #fff;
+                background-color: #3c392d;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 0px 10px;
+                margin: 0px 10px;
+                border-radius: 4px;
+            }
+        }
+    }
 }
