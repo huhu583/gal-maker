@@ -7,6 +7,7 @@ import Menu from '@/pages/Menu/Menu'
 import Identity from '@/pages/Identity/Identity'
 import GameMain from "@/pages/GameMain/GameMain"
 import Header from "@/components/Header/Header"
+import Bottom from "@/components/Bottom/Bottom"
 import {
     BrowserRouter as Router,
     Switch,
@@ -56,4 +57,4 @@ import {
 // ReactDOM.render(<Identity></Identity>, document.getElementById("main"));
 // ReactDOM.render(<Menu></Menu>, document.getElementById("main"));
 // ReactDOM.render(<GameMain />, document.getElementById("main"));
-ReactDOM.render(<Header />, document.getElementById("main"));
+ReactDOM.render(<Bottom />, document.getElementById("main"));

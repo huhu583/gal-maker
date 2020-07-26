@@ -12,8 +12,8 @@ class Bottom extends React.Component {
         return (
             <div className={cssObj["bottom-container"]}>
                 <div>© 2020 - Now  Made By huhu583 | </div>
-                <div className={cssObj["bottom-button"]}>About Us</div> |
-                <div className={cssObj["bottom-button"]}>Donate</div> |
+                <div className={cssObj["bottom-button"]}>About Us</div> | 
+                <div className={cssObj["bottom-button"]}>Donate</div> | 
                 <div className={cssObj["bottom-button"]}>Join Us</div>
             </div>
         );
