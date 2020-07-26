@@ -5,6 +5,7 @@ import ReactDOM from "react-dom"
 import '@/index.less'
 import Menu from '@/pages/Menu/Menu'
 import Identity from '@/pages/Identity/Identity'
+import GameMain from "@/pages/GameMain/GameMain"
 import {
     BrowserRouter as Router,
     Switch,
@@ -51,5 +52,6 @@ import {
 // ReactDOM.render(<Hello {...hero}></Hello>, document.getElementById("zj"));
 
 // ReactDOM.render(<HuhuComponent {...hero}></HuhuComponent>, document.getElementById("zj1"));
-ReactDOM.render(<Identity></Identity>, document.getElementById("main"));
+// ReactDOM.render(<Identity></Identity>, document.getElementById("main"));
 // ReactDOM.render(<Menu></Menu>, document.getElementById("main"));
+ReactDOM.render(<GameMain />, document.getElementById("main"));
