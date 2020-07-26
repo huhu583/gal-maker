@@ -6,6 +6,7 @@ import '@/index.less'
 import Menu from '@/pages/Menu/Menu'
 import Identity from '@/pages/Identity/Identity'
 import GameMain from "@/pages/GameMain/GameMain"
+import Header from "@/components/Header/Header"
 import {
     BrowserRouter as Router,
     Switch,
@@ -54,4 +55,5 @@ import {
 // ReactDOM.render(<HuhuComponent {...hero}></HuhuComponent>, document.getElementById("zj1"));
 // ReactDOM.render(<Identity></Identity>, document.getElementById("main"));
 // ReactDOM.render(<Menu></Menu>, document.getElementById("main"));
-ReactDOM.render(<GameMain />, document.getElementById("main"));
+// ReactDOM.render(<GameMain />, document.getElementById("main"));
+ReactDOM.render(<Header />, document.getElementById("main"));
