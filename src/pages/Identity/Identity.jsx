@@ -1,5 +1,6 @@
 import React from "react"
-import ReactDOM from "react-dom"
+// import ReactDOM from "react-dom"
+import { Link } from "react-router-dom"
 import cssObj from "@/pages/Identity/Identity.less"
 import GameList from '@/pages/GameList/GameList'
 
@@ -26,12 +27,10 @@ class Identity extends React.Component {
     typeButtonClick = (type) => {
         switch (type) {
             case 1:
-                alert("你的身份是玩家");
-                ReactDOM.render(<GameList></GameList>, document.getElementById("main"));
+                // ReactDOM.render(<GameList></GameList>, document.getElementById("main"));
                 break;
             case 2:
-                alert("你的身份是设计者");
-                ReactDOM.render(<GameList></GameList>, document.getElementById("main"));
+                // ReactDOM.render(<GameList></GameList>, document.getElementById("main"));
                 break;
             default:
                 return;
@@ -45,7 +44,10 @@ class Identity extends React.Component {
                 <div>你的身份是？</div>
             </div>
             <div className={cssObj["identity-button"]}>
-                <div onClick={()=>{this.typeButtonClick(1)}}>玩家</div>
+                <Link to="/GameList">玩家</Link>
+                <div onClick={()=>{this.typeButtonClick(1)}}>
+                    玩家
+                </div>
                 <div onClick={()=>{this.typeButtonClick(2)}}>设计者</div>
             </div>
         </div>;

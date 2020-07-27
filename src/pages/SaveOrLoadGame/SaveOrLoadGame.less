@@ -1,0 +1,46 @@
+.game-data-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    
+    .game-data-top {
+        height: 70px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+        background-color: #ffaee3;
+
+        .game-data-page-list {
+            height: 45px;
+            width: 800px;
+            display: flex;
+            border: 1px solid #fff;
+        }
+    }
+
+    .game-data-list {
+        display: flex;
+        width: calc(~"100% - 40px");
+        height: calc(~"100% - 150px");
+        margin: 0px 20px;
+        opacity: 0.8;
+        background-color: #1e1e1e;
+    }
+
+    .game-data-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 80px;
+        background-color: #d97f1e;
+
+        .game-data-bottom-triangle {
+            width: 50px;
+            height: 55px;
+        }
+    }
+}

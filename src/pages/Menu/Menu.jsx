@@ -1,17 +1,30 @@
 import React from "react"
+import ReactDOM from "react-dom"
 import cssObj from "@/pages/Menu/Menu.less"
+import SaveOrloadGame from "@/pages/SaveOrLoadGame/SaveOrLoadGame"
 
 class Menu extends React.Component {
-    constructor () {
+    constructor() {
         super();
+    }
+
+    // 点击继续游戏后进入加载存档页面
+    entryLoadDataPage = () => {
+        ReactDOM.render(<SaveOrloadGame></SaveOrloadGame>, document.getElementById("main"));
     }
 
     render() {
         const menuObj = <div className={cssObj["menu-list"]}>
             <div>开始游戏</div>
-            <div>继续游戏</div>
-            <div>系统设置</div>
-            <div>结束游戏</div>
+            <div onClick={()=>{this.entryLoadDataPage()}}>
+                继续游戏
+            </div>
+            <div>
+                系统设置
+            </div>
+            <div>
+                结束游戏
+            </div>
         </div>
         return menuObj
     }

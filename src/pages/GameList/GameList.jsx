@@ -1,5 +1,7 @@
 import React from "react"
+import ReactDOM from "react-dom"
 import cssObj from "@/pages/GameList/GameList.less"
+import Menu from "@/pages/Menu/Menu"
 
 class GameList extends React.Component {
     constructor() {
@@ -44,11 +46,18 @@ class GameList extends React.Component {
         };
     }
 
+    // 进入游戏主菜单方法
+    entryGameMain = (gameData) => {
+        // 进入游戏主菜单页面
+        ReactDOM.render(<Menu></Menu>, document.getElementById("main"));
+    }
+
     render() {
         return <div className={cssObj["game-list-container"]}>
             {this.state.gameDataList.map(item => <div className = {cssObj["game-list-item"]}>
                 <div className={cssObj["game-list-title"]}>{item.title}</div>
-                <div className={cssObj["game-list-tip"]}>
+                <div className={cssObj["game-list-tipbar"]}>
+
                     <div className={cssObj["game-list-tip-item"]}>
                         {item.publishTime}
                     </div>
@@ -57,6 +66,14 @@ class GameList extends React.Component {
                     </div>
                     <div className={cssObj["game-list-tip-item"]}>
                         {item.type}
+                    </div>
+                </div >
+                <div className={cssObj["game-list-content"]}>
+                    {/* 显示背景图div */}
+                    <div className={cssObj["game-list-bgimg"]}></div>
+                    {/* 显示说明文字div,hover时才显示 */}
+                    <div className={cssObj["game-list-tip"]} onClick={()=>{this.entryGameMain(item)}}>
+                        {item.tip}
                     </div>
                 </div>
             </div>)}
