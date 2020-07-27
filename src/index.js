@@ -3,6 +3,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 // import data from './config.json'
 import '@/index.less'
+
 import Router from "@/router"
 // import Menu from '@/pages/Menu/Menu'
 // import Identity from '@/pages/Identity/Identity'
@@ -12,6 +13,12 @@ import Router from "@/router"
 //     Route,
 //     Link
 //   } from "react-router-dom";
+
+import Menu from '@/pages/Menu/Menu'
+import Identity from '@/pages/Identity/Identity'
+import GameMain from "@/pages/GameMain/GameMain"
+import Header from "@/components/Header/Header"
+import Bottom from "@/components/Bottom/Bottom"
 
 // import Hello from '@/components/Hello'
 // import HuhuComponent from "./components/Huhu"
@@ -52,5 +59,12 @@ import Router from "@/router"
 // ReactDOM.render(<Hello {...hero}></Hello>, document.getElementById("zj"));
 
 // ReactDOM.render(<HuhuComponent {...hero}></HuhuComponent>, document.getElementById("zj1"));
+
 ReactDOM.render(<Router />, document.getElementById("main"));
 // ReactDOM.render(<Menu></Menu>, document.getElementById("main"));
+
+// ReactDOM.render(<Identity></Identity>, document.getElementById("main"));
+// ReactDOM.render(<Menu></Menu>, document.getElementById("main"));
+// ReactDOM.render(<GameMain />, document.getElementById("main"));
+// ReactDOM.render(<Bottom />, document.getElementById("main"));
+
