@@ -44,11 +44,12 @@ class Identity extends React.Component {
                 <div>你的身份是？</div>
             </div>
             <div className={cssObj["identity-button"]}>
-                <Link to="/GameList">玩家</Link>
-                <div onClick={()=>{this.typeButtonClick(1)}}>
-                    玩家
-                </div>
-                <div onClick={()=>{this.typeButtonClick(2)}}>设计者</div>
+                <Link to="/GameList">
+                    <div>玩家</div>
+                </Link>
+                <Link to="/DesignerMain">
+                    <div>设计者</div>
+                </Link>
             </div>
         </div>;
     }

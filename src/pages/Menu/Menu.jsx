@@ -10,7 +10,9 @@ class Menu extends React.Component {
 
     // 点击继续游戏后进入加载存档页面
     entryLoadDataPage = () => {
-        ReactDOM.render(<SaveOrloadGame></SaveOrloadGame>, document.getElementById("main"));
+        // 操作路由跳转到加载存档页面、
+         this.props.history.push("/SaveOrLoadGame", "跳转到存档页面");
+        // ReactDOM.render(<SaveOrloadGame></SaveOrloadGame>, document.getElementById("main"));
     }
 
     render() {

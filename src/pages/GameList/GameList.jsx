@@ -9,6 +9,8 @@ class GameList extends React.Component {
         this.state = {
             // 游戏列表
             gameDataList: [{
+                // ID
+                id: "1",
                 // 游戏名称
                 title: "中二病神探",
                 // 制作者
@@ -22,6 +24,7 @@ class GameList extends React.Component {
                 // 类型
                 type: "悬疑、推理"
             },{
+                id: "2",
                 title: "doki doki",
                 maker: "huhu583",
                 tip: "欧阳岚遇到了令人头疼的诡异吊尸事件，这时，一位中二病美少女突然出现在了他的眼前。于是，一段充满着魔幻的推理故事即将在你的眼前展开。。",
@@ -29,6 +32,7 @@ class GameList extends React.Component {
                 publishTime: "2020-07-25",
                 type: "恋爱、校园"
             },{
+                id: "3",
                 title: "异世界穿越",
                 maker: "huhu583",
                 tip: "欧阳岚遇到了令人头疼的诡异吊尸事件，这时，一位中二病美少女突然出现在了他的眼前。于是，一段充满着魔幻的推理故事即将在你的眼前展开。。",
@@ -36,6 +40,7 @@ class GameList extends React.Component {
                 publishTime: "2020-07-25",
                 type: "青春、回忆"
             },{
+                id: "4",
                 title: "just flew time",
                 maker: "huhu583",
                 tip: "欧阳岚遇到了令人头疼的诡异吊尸事件，这时，一位中二病美少女突然出现在了他的眼前。于是，一段充满着魔幻的推理故事即将在你的眼前展开。。",
@@ -49,12 +54,13 @@ class GameList extends React.Component {
     // 进入游戏主菜单方法
     entryGameMain = (gameData) => {
         // 进入游戏主菜单页面
-        ReactDOM.render(<Menu></Menu>, document.getElementById("main"));
+        // 操作跳转路由
+        this.props.history.push('/Menu', '我是要传递的参数');
     }
 
     render() {
         return <div className={cssObj["game-list-container"]}>
-            {this.state.gameDataList.map(item => <div className = {cssObj["game-list-item"]}>
+            {this.state.gameDataList.map(item => <div  key={item.id} className = {cssObj["game-list-item"]}>
                 <div className={cssObj["game-list-title"]}>{item.title}</div>
                 <div className={cssObj["game-list-tipbar"]}>
 
