@@ -2,7 +2,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 // import data from './config.json'
-import '@/index.less'
+import "@/index.less"
 
 import Router from "@/router"
 // import Menu from '@/pages/Menu/Menu'
@@ -14,8 +14,8 @@ import Router from "@/router"
 //     Link
 //   } from "react-router-dom";
 
-import Menu from '@/pages/Menu/Menu'
-import Identity from '@/pages/Identity/Identity'
+import Menu from "@/pages/Menu/Menu"
+import Identity from "@/pages/Identity/Identity"
 import GameMain from "@/pages/GameMain/GameMain"
 import Header from "@/components/Header/Header"
 import Bottom from "@/components/Bottom/Bottom"

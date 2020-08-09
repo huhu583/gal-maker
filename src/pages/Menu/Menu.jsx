@@ -1,7 +1,5 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import cssObj from "@/pages/Menu/Menu.less"
-import SaveOrloadGame from "@/pages/SaveOrLoadGame/SaveOrLoadGame"
 
 class Menu extends React.Component {
     constructor() {
