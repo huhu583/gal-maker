@@ -85,5 +85,13 @@ module.exports = {
             // 配置@来表示根目录
             '@': resolve(__dirname, './src') 
         }
-    }
+    },
+    devServer: {
+        contentBase: './',
+        open: true,
+        port: 5839,
+        hot: true,
+        hotOnly: true,
+        historyApiFallback: true // 在使用单页面应用的时候，需要设置此参数，代表如果访问除根路径以外的地址，最终都会转向去请求根路径。
+    },
 }

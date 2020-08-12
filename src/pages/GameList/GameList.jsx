@@ -1,7 +1,6 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import cssObj from "@/pages/GameList/GameList.less"
-import Menu from "@/pages/Menu/Menu"
+
 
 class GameList extends React.Component {
     constructor() {

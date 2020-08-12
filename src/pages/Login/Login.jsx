@@ -1,9 +1,7 @@
 import React from "react"
-import axios from "axios"
 
 import cssObj from "@/pages/Login/Login.less"
-
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+import http from "@/http.js"
 
 class Login extends React.Component {
     constructor() {
@@ -15,39 +13,130 @@ class Login extends React.Component {
             // 登录信息
             loginName: "",
             loginPassword: "",
+            loginErrorData: [],
 
             // 注册信息
             createName: "",
             createPassword: "",
-            createReapeatPassword: "",
+            createRepeatPassword: "",
             createEmail: "",
             createPhone: "",
-            // 账号身份(player,designer)
-            createUserType: ""
+            // 账号身份(player,designer),默认player
+            createUserType: "player",
+            createErrorData: []
+
         }
     }
 
     // 因为react是单向绑定,需要手动实现onchange
     // input框改变事件
     textChanged = (e, fieldName) => {
-        var stateObj = this.state
+        // 任何input框改变时清除所有错误信息
+        this.state.loginErrorData = [""]
+        this.state.createErrorData = [""]
+
+        let stateObj = this.state
         stateObj[fieldName] = e.target.value
         this.setState(stateObj)
     }
 
+    // 输入密码后点击回车登录
+    handleEnterKey = (e) => {
+        if (e.nativeEvent.keyCode === 13) {
+            this.login()
+        }
+    }
+
     // 点击登录按钮事件
     login = () => {
-        axios.get("https://api.github.com").then((res)=>{
-            console.log(res.data)
-        })
-        axios.get("http://127.0.0.1:5837/huhu").then((res)=>{
-            alert(res)
+        // 登录前清空错误信息
+        this.state.loginErrorData = []
+        http.post("/user/login", {
+            name: this.state.loginName,
+            password: this.state.loginPassword,
+        }).then((res) => {
+            if (res.data.errCode == "0") {
+                // 说明请求成功(根据用户身份跳转对应路由)
+                this.jumpPage(res)
+            }
+            else {
+                // 说明请求失败,用户名或密码不正确
+                this.state.loginErrorData.push("用户名或密码不正确")
+                let errorList = this.state.loginErrorData
+                this.setState({
+                    loginErrorData: errorList
+                })
+            }
         })
     }
 
     // 点击注册新账号
     create = () => {
+        // 注册前清空错误信息
+        this.state.createErrorData = []
+        var isCheck = true
+        // 首先判断有没有输入用户名,密码及邮箱
+        if (this.state.createName == "") {
+            this.state.createErrorData.push('用户名不能为空')
+            isCheck = false
+        }
+        if (this.state.createEmail == "") {
+            this.state.createErrorData.push('邮箱不能为空')
+            isCheck = false
+        }
+        if (this.state.createPassword == "") {
+            this.state.createErrorData.push('密码不能为空')
+            isCheck = false
+        }
+        if (this.state.createPhone == "") {
+            this.state.createErrorData.push('手机号不能为空')
+            isCheck = false
+        }
+        // 判断密码和重复密码是否相等
+        if (this.state.password == this.state.createRepeatPassword) {
+            this.state.createErrorData.push('两次输入的密码不一致')
+            isCheck = false
+        }
 
+        if (isCheck) {
+            http.post("/user/create", {
+                name: this.state.createName,
+                email: this.state.createEmail,
+                password: this.state.createPassword,
+                phone: this.state.createPhone,
+                type: this.state.createUserType,
+            }).then((res) => {
+                if (res.data.errCode == "0") {
+                    // 说明请求成功(根据用户身份跳转对应路由)
+                    this.jumpPage(res)
+                }
+                else {
+                    // 说明请求失败
+                    this.state.createErrorData.push("用户名已存在")
+                    let errorList = this.state.createErrorData
+                    this.setState({
+                        createErrorData: errorList
+                    })
+                }
+            })
+        }
+        else {
+            this.setState({
+                createErrorData: this.state.createErrorData
+            })
+        }
+    }
+
+    // 登录或者注册成功后执行方法
+    jumpPage = (res) => {
+        sessionStorage.setItem("userId", res.data.data.userId)
+        sessionStorage.setItem("userType", res.data.data.type)
+        if (res.data.data.type == "player") {
+            this.props.history.push('/GameList', '')
+        }
+        else {
+            this.props.history.push('/DesignerMain', '')
+        }
     }
 
     // 切换到注册
@@ -62,6 +151,26 @@ class Login extends React.Component {
         this.setState({
             isLogin: true
         })
+    }
+
+    // 用户身份改变事件
+    userTypeChange = (type) => {
+        this.setState({
+            createUserType: type
+        })
+    }
+
+    // 组件展示前,需要判断sessionStorage里面有没有用户ID,如果已经有用户ID,说明已经登录过直接跳转
+    componentWillMount() {
+        if(sessionStorage.userId !=  undefined) {
+            // 跳转到
+            if(sessionStorage.userType == "player") {
+                this.props.history.push('/GameList', '')
+            }
+            else {
+                this.props.history.push('/DesignerMain', '')
+            }
+        }
     }
 
     render() {
@@ -80,10 +189,18 @@ class Login extends React.Component {
                                 </div>
                                 <div className={cssObj["label"]}>密码</div>
                                 <div>
-                                    <input type="password" value={this.state.loginPassword} onChange={(e) => { this.textChanged(e, "loginPassword") }} />
+                                    <input type="password" value={this.state.loginPassword} onKeyPress={(e) => { this.handleEnterKey(e) }} onChange={(e) => { this.textChanged(e, "loginPassword") }} />
+                                </div>
+                                <div className={cssObj["error-data"]}>
+                                    {
+                                        this.state.loginErrorData.map((item, index) => {
+                                            return <p key={index}>{item}</p>
+                                        })
+                                    }
                                 </div>
                                 <div className={cssObj["button-area"]}>
-                                    <div>记住我的登录信息</div>
+                                    {/* <div>记住我的登录信息</div> */}
+                                    <div></div>
                                     <div className={cssObj["login-button"]} onClick={() => { this.login() }}>
                                         登录
                                     </div>
@@ -120,10 +237,19 @@ class Login extends React.Component {
                                     <input type="password" value={this.state.createRepeatPassword} onChange={(e) => { this.textChanged(e, "createRepeatPassword") }} />
                                 </div>
                                 <div className={cssObj["label"]}>用户身份</div>
-                                <div>
-                                    玩家/设计者
+                                <div className={cssObj["user-type-button-area"]}>
+                                    <div className={this.state.createUserType == "player" ? cssObj["type-select"] : ""} onClick={() => { this.userTypeChange("player") }}>玩家</div>
+                                    <div className={this.state.createUserType == "designer" ? cssObj["type-select"] : ""} onClick={() => { this.userTypeChange("designer") }}>设计者</div>
                                 </div>
-                                
+
+                                <div className={cssObj["error-data"]}>
+                                    {
+                                        this.state.createErrorData.map((item, index) => {
+                                            return <p key={index}>{item}</p>
+                                        })
+                                    }
+                                </div>
+
                                 <div className={cssObj["button-area"]}>
                                     <div></div>
                                     <div className={cssObj["login-button"]} onClick={() => { this.create() }}>
