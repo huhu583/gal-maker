@@ -8,6 +8,7 @@
     height: 100%;
     width: 100%;
     margin: 0px;
+    font-size: 14px;
 }
 
 :global(#main) {
@@ -19,8 +20,15 @@
     overflow: hidden;
 }
 
-
 :global(a) {
     text-decoration: none;
     color: #000;
+}
+
+// 区域边框,用于和背景图做相关区分
+:global(.area) {
+    background-color: rgba(230,238,232,0.65);
+    box-shadow: 0px 0px 8px black;
+    border-radius: 4px;
+    margin: 15px;
 }

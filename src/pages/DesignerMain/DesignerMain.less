@@ -1,8 +1,14 @@
+.game-designer {
+    width: 100%;
+    height: auto;
+}
+
 .game-project-content {
     width: 350px;
-    height: auto;
-    max-height: 750px;
+    height: calc(~"100% - 171px");
     display: flex;
+    flex-direction: column;
+    padding: 18px;
 
     .game-project-title {
         height: 50px;
@@ -11,5 +17,28 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .game-project-search {
+
+    }
+
+    .game-project-list {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .game-project-item {
+            height: 30px;
+            width: 100%; 
+            color: #0366d6;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .game-project-item:hover {
+            text-decoration: underline;
+        }
     }
 }
