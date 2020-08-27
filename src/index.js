@@ -20,6 +20,9 @@ import GameMain from "@/pages/GameMain/GameMain"
 import Header from "@/components/Header/Header"
 import Bottom from "@/components/Bottom/Bottom"
 
+// 引入antd样式
+import "antd/dist/antd.css"
+
 // import Hello from '@/components/Hello'
 // import HuhuComponent from "./components/Huhu"
 

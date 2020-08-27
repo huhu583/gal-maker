@@ -17,17 +17,31 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+
+        .game-project-create-button {
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            width: 70px;
+            cursor: pointer;
+            background-color: #2ea44f;
+            color: #fff;
+            padding: 0px 10px;
+            border-radius: 4px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .game-project-create-button:hover {
+            background-color: #2c974b;
+        }
     }
-
-    .game-project-search {
-
-    }
-
     .game-project-list {
         height: auto;
         width: 100%;
         display: flex;
         flex-direction: column;
+        margin-top: 10px;
+        padding: 10px 0px;
 
         .game-project-item {
             height: 30px;

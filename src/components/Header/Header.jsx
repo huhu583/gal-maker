@@ -1,6 +1,7 @@
 // 玩家和设计者通用的标题头
 import React from "react"
 import cssObj from "@/components/Header/Header.less"
+import { HomeOutlined, HeartOutlined, UsergroupDeleteOutlined, FileTextOutlined, RetweetOutlined } from "@ant-design/icons"
 
 class Header extends React.Component {
     constructor() {
@@ -17,43 +18,43 @@ class Header extends React.Component {
     render() {
         return <div className={cssObj["header-container"]}>
             {
-                this.state.headerType == 'player'?
-                <div>
-                    <div className={[cssObj["tag"], this.state.choseTag == 'index'?cssObj["chose-tag"]:null].join(' ')}>
-                        首页
+                this.state.headerType == 'player' ?
+                    <div>
+                        <div className={[cssObj["tag"], this.state.choseTag == 'index' ? cssObj["chose-tag"] : null].join(' ')}>
+                            <HomeOutlined /> 首页
+                        </div>
+                        <div className={cssObj["tag"]}>
+                            <HeartOutlined /> 收藏夹
+                        </div>
+                        <div className={cssObj["tag"]}>
+                            <UsergroupDeleteOutlined /> 团队管理
+                        </div>
+                        <div className={cssObj["tag"]}>
+                            <FileTextOutlined /> 留言板
+                        </div>
+                        <div className={cssObj["tag"]}>
+                            <RetweetOutlined /> 切换身份
+                        </div>
                     </div>
-                    <div className={cssObj["tag"]}>
-                        收藏夹
+                    :
+                    // 设计者头部
+                    <div className={cssObj["content"]}>
+                        <div className={[cssObj["tag"], this.state.choseTag == 'index' ? cssObj["chose-tag"] : null].join(' ')}>
+                            <HomeOutlined /> 首页
+                        </div>
+                        <div className={[cssObj["tag"], this.state.choseTag == 'bookmark' ? cssObj["chose-tag"] : null].join(' ')}>
+                            <HeartOutlined /> 收藏夹
+                        </div>
+                        <div className={[cssObj["tag"], this.state.choseTag == 'teamManage' ? cssObj["chose-tag"] : null].join(' ')}>
+                            <UsergroupDeleteOutlined /> 团队管理
+                        </div>
+                        <div className={[cssObj["tag"], this.state.choseTag == 'questionArea' ? cssObj["chose-tag"] : null].join(' ')}>
+                            <FileTextOutlined /> 问答专区
+                        </div>
+                        <div className={[cssObj["tag"], this.state.choseTag == 'changeUserType' ? cssObj["chose-tag"] : null].join(' ')}>
+                            <RetweetOutlined /> 切换身份
+                        </div>
                     </div>
-                    <div className={cssObj["tag"]}>
-                        团队管理
-                    </div>
-                    <div className={cssObj["tag"]}>
-                        留言板
-                    </div>
-                    <div className={cssObj["tag"]}>
-                        切换身份
-                    </div>
-                </div>
-                :
-                // 设计者头部
-                <div className={cssObj["content"]}>
-                    <div className={[cssObj["tag"], this.state.choseTag == 'index'?cssObj["chose-tag"]:null].join(' ')}>
-                        首页
-                    </div>
-                    <div className={[cssObj["tag"], this.state.choseTag == 'bookmark'?cssObj["chose-tag"]:null].join(' ')}>
-                        收藏夹
-                    </div>
-                    <div className={[cssObj["tag"], this.state.choseTag == 'teamManage'?cssObj["chose-tag"]:null].join(' ')}>
-                        团队管理
-                    </div>
-                    <div className={[cssObj["tag"], this.state.choseTag == 'questionArea'?cssObj["chose-tag"]:null].join(' ')}>
-                        问答专区
-                    </div>
-                    <div className={[cssObj["tag"], this.state.choseTag == 'changeUserType'?cssObj["chose-tag"]:null].join(' ')}>
-                        切换身份
-                    </div>
-                </div>
             }
             <div></div>
         </div>
