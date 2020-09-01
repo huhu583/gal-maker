@@ -2,6 +2,15 @@ import React from "react"
 
 import cssObj from "@/pages/Login/Login.less"
 import http from "@/http.js"
+import { Form, Input, Button } from 'antd';
+
+const layout = {
+    labelCol: { span: 5 },
+    wrapperCol: { span: 19 },
+};
+const tailLayout = {
+    wrapperCol: { offset: 19 },
+};
 
 class Login extends React.Component {
     constructor() {
@@ -135,7 +144,7 @@ class Login extends React.Component {
             this.props.history.push('/GameList', '')
         }
         else {
-            this.props.history.push('/DesignerMain', '')
+            this.props.history.push('/Content/DesignerMain', '')
         }
     }
 
@@ -162,15 +171,37 @@ class Login extends React.Component {
 
     // 组件展示前,需要判断sessionStorage里面有没有用户ID,如果已经有用户ID,说明已经登录过直接跳转
     componentWillMount() {
-        if(sessionStorage.userId !=  undefined) {
+        if (sessionStorage.userId != undefined) {
             // 跳转到
-            if(sessionStorage.userType == "player") {
+            if (sessionStorage.userType == "player") {
                 this.props.history.push('/GameList', '')
             }
             else {
-                this.props.history.push('/DesignerMain', '')
+                this.props.history.push('/Content/DesignerMain', '')
             }
         }
+    }
+
+    onFinish = (value)=> {
+        // 登录前清空错误信息
+        this.state.loginErrorData = []
+        http.post("/user/login", {
+            name: value.username,
+            password: value.password,
+        }).then((res) => {
+            if (res.data.errCode == "0") {
+                // 说明请求成功(根据用户身份跳转对应路由)
+                this.jumpPage(res)
+            }
+            else {
+                // 说明请求失败,用户名或密码不正确
+                this.state.loginErrorData.push("用户名或密码不正确")
+                let errorList = this.state.loginErrorData
+                this.setState({
+                    loginErrorData: errorList
+                })
+            }
+        })
     }
 
     render() {
@@ -183,7 +214,34 @@ class Login extends React.Component {
                     {
                         this.state.isLogin ?
                             <div className={cssObj["data-area"]}>
-                                <div className={cssObj["label"]}>用户名</div>
+                                <Form {...layout} onFinish={this.onFinish}>
+                                    <Form.Item
+                                        label="用户名"
+                                        name="username"
+                                        rules={[{ required: true, message: '请输入你的用户名' }]}
+                                    >
+                                        <Input />
+                                    </Form.Item>
+
+                                    <Form.Item
+                                        label="密码"
+                                        name="password"
+                                        rules={[{ required: true, message: '请输入你的密码' }]}>
+                                        <Input.Password />
+                                    </Form.Item>
+
+                                    <Form.Item {...tailLayout}>
+                                        <Button type="primary" htmlType="submit">
+                                            登录
+                                        </Button>
+                                    </Form.Item>
+                                </Form>
+                                <div className={cssObj["bottom-area"]}>
+                                    <div onClick={() => { this.createChange() }}>注册</div>
+                                    <div className={cssObj["split"]}> | </div>
+                                    <div>忘记密码</div>
+                                </div>
+                                {/* <div className={cssObj["label"]}>用户名</div>
                                 <div>
                                     <input type="text" value={this.state.loginName} onChange={(e) => { this.textChanged(e, "loginName") }} />
                                 </div>
@@ -199,7 +257,6 @@ class Login extends React.Component {
                                     }
                                 </div>
                                 <div className={cssObj["button-area"]}>
-                                    {/* <div>记住我的登录信息</div> */}
                                     <div></div>
                                     <div className={cssObj["login-button"]} onClick={() => { this.login() }}>
                                         登录
@@ -210,7 +267,7 @@ class Login extends React.Component {
                                     <div onClick={() => { this.createChange() }}>注册</div>
                                     <div className={cssObj["split"]}> | </div>
                                     <div>忘记密码</div>
-                                </div>
+                                </div> */}
                             </div>
                             :
                             // 注册页面区域

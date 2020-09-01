@@ -18,7 +18,7 @@ import Menu from "@/pages/Menu/Menu"
 import Identity from "@/pages/Identity/Identity"
 import GameMain from "@/pages/GameMain/GameMain"
 import Header from "@/components/Header/Header"
-import Bottom from "@/components/Bottom/Bottom"
+import Footer from "@/components/Footer/Footer"
 
 // 引入antd样式
 import "antd/dist/antd.css"
@@ -52,7 +52,6 @@ import "antd/dist/antd.css"
 //     return <h1 key={index}>{item}</h1>
 // })
 // ReactDOM.render(result, document.getElementById("rq2"));
-
 
 // let hero = {
 //     name: "huhu583",
