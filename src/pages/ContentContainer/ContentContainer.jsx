@@ -3,33 +3,27 @@ import cssObj from '@/pages/ContentContainer/ContentContainer.less'
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
 import DesignerMain from "@/pages/DesignerMain/DesignerMain"
+import GameEdit from "@/pages/GameEdit/GameEdit"
 
-let Container = null
+// 创建路由字典
+const dictionary = {
+    "DesignerMain": DesignerMain,
+    "GameEdit": GameEdit
+}
 
-class ContentContainer extends React.Component {
-    constructor(props) {
-        super()
-        switch (props.match.params[0]) {
-            // 匹配路由参数
-            case "DesignerMain":
-                Container = DesignerMain                
-                break
-            default: 
-                break
-        }
-    }
+function ContentContainer(props) {
 
-    render() {
-        return <div className={cssObj["content-container"]}>
-            {/* 引入通用页面头,类型为设计者 */}
-            <Header />
+    let Content = dictionary[props.match.params[0]];
 
-            <Container />
+    return (<div className={cssObj["content-container"]}>
+        {/* 引入通用页面头,类型为设计者 */}
+        <Header />
 
-            {/* 引入通用底部栏 */}
-            <Footer />
-        </div>
-    }
+        <Content />
+
+        {/* 引入通用底部栏 */}
+        <Footer />
+    </div>)
 }
 
 export default ContentContainer

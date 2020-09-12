@@ -12,6 +12,10 @@ const tailLayout = {
     wrapperCol: { offset: 19 },
 };
 
+// function Login() {
+//     return ();
+// }
+
 class Login extends React.Component {
     constructor() {
         super()
@@ -58,6 +62,8 @@ class Login extends React.Component {
 
     // 点击登录按钮事件
     login = () => {
+        // 说明请求成功(根据用户身份跳转对应路由)
+        this.jumpPage(res)
         // 登录前清空错误信息
         this.state.loginErrorData = []
         http.post("/user/login", {
@@ -138,6 +144,8 @@ class Login extends React.Component {
 
     // 登录或者注册成功后执行方法
     jumpPage = (res) => {
+        this.props.history.push('/Content/DesignerMain', '')
+        return
         sessionStorage.setItem("userId", res.data.data.userId)
         sessionStorage.setItem("userType", res.data.data.type)
         if (res.data.data.type == "player") {
@@ -184,6 +192,9 @@ class Login extends React.Component {
 
     onFinish = (value)=> {
         // 登录前清空错误信息
+        // 说明请求成功(根据用户身份跳转对应路由)
+        this.jumpPage()
+        return
         this.state.loginErrorData = []
         http.post("/user/login", {
             name: value.username,
