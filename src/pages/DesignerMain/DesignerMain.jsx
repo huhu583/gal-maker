@@ -31,6 +31,12 @@ class DesignerMain extends React.Component {
         console.log(value);
     }
 
+    // 编辑游戏页面
+    handleSkipGameEdit = (item) => {
+        debugger
+        this.props.history.push('/Content/GameEdit', item)
+    }
+
     // 跳转到新建游戏页面
     skipCreateGamePage = () => {
         this.props.history.push('/CreateGame', '')
@@ -39,7 +45,7 @@ class DesignerMain extends React.Component {
     render() {
         return <div className={cssObj["game-designer"]}>
             {/* 引入通用页面头,类型为设计者 */}
-            <Header />
+            {/* <Header /> */}
 
             <div className={[cssObj["game-project-content"], 'area'].join(" ")}>
                 <div className={cssObj["game-project-title"]}>
@@ -55,16 +61,22 @@ class DesignerMain extends React.Component {
                     />
                 </div>
                 <div className={cssObj["game-project-list"]}>
-                    {this.state.gameList.map(item =>
-                        <div className={cssObj["game-project-item"]} key={item.gameId}>
+                    {this.state.gameList.map((item) => {
+                        // return <div className={cssObj["game-project-item"]} key={item.gameId} onClick={this.handleSkipGameEdit.bind(this, item)}>
+                        //     {item.name}
+                        // </div>
+
+                        return <div className={cssObj["game-project-item"]} key={item.gameId} onClick={() => {
+                            this.handleSkipGameEdit(item)
+                        }}>
                             {item.name}
                         </div>
-                    )}
+                    })}
                 </div>
             </div>
 
             {/* 引入通用底部栏 */}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     }
 }
