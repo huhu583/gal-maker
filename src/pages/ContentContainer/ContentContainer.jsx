@@ -19,7 +19,9 @@ function ContentContainer(props) {
         {/* 引入通用页面头,类型为设计者 */}
         <Header />
 
-        <Content />
+        <div className={cssObj["content-square"]}>
+            <Content />
+        </div>
 
         {/* 引入通用底部栏 */}
         <Footer />

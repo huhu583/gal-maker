@@ -19,11 +19,11 @@ function DesignerMain() {
 
     const initPage = () => {
         // 发送请求获取游戏列表
-        // http.get("/game/getCreateGameList", { userId: sessionStorage.getItem("userId") }).then((res) => {
-        //     if (res.data.errCode == "0") {
-        //         setGameList(res.data.data);
-        //     }
-        // })
+        http.get("/game/getCreateGameList", { userId: sessionStorage.getItem("userId") }).then((res) => {
+            if (res.data.errCode == "0") {
+                setGameList(res.data.data);
+            }
+        })
     }
 
     // 查找游戏列表
@@ -38,7 +38,7 @@ function DesignerMain() {
 
     // 跳转到新建游戏页面
     const skipCreateGamePage = () => {
-        history.push('/Content/GameEdit', "")
+        history.push('/CreateGame', '')
     }
 
     return <div className={cssObj["game-designer"]}>

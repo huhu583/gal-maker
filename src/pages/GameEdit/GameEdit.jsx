@@ -45,7 +45,7 @@ function GameEdit() {
             <div className={cssObj["text"]}>
                 {name}
             </div>
-            <div className={cssObj["publish"]} onClick={publish}>
+            <div className={cssObj["publish"]} onClick={()=>{publish()}}>
                 发布
             </div>
         </div>
