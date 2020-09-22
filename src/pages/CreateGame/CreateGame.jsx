@@ -2,7 +2,7 @@ import React from "react"
 import cssObj from "@/pages/CreateGame/CreateGame.less"
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
-import http from "@/http.js"
+import http from "@/common/http.js"
 import { Form, Input, Button,Checkbox } from 'antd'
 
 // var form = Form.useForm()

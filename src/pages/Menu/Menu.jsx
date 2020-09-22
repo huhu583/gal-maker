@@ -1,33 +1,29 @@
 import React from "react"
 import cssObj from "@/pages/Menu/Menu.less"
+import { useHistory } from "react-router-dom";
 
-class Menu extends React.Component {
-    constructor() {
-        super();
-    }
+function Menu() {
+    const history = useHistory();
 
     // 点击继续游戏后进入加载存档页面
-    entryLoadDataPage = () => {
+    const entryLoadDataPage = () => {
         // 操作路由跳转到加载存档页面、
-         this.props.history.push("/SaveOrLoadGame", "跳转到存档页面");
-        // ReactDOM.render(<SaveOrloadGame></SaveOrloadGame>, document.getElementById("main"));
+        history.push("/SaveOrLoadGame", "跳转到存档页面");
     }
 
-    render() {
-        const menuObj = <div className={cssObj["menu-list"]}>
-            <div>开始游戏</div>
-            <div onClick={()=>{this.entryLoadDataPage()}}>
-                继续游戏
-            </div>
+    const page = (<div className={cssObj["menu-list"]}>
+        <div>开始游戏</div>
+        <div onClick={() => { entryLoadDataPage() }}>
+            继续游戏
+        </div>
             <div>
                 系统设置
-            </div>
+        </div>
             <div>
                 结束游戏
-            </div>
         </div>
-        return menuObj
-    }
+    </div>);
+    return page;
 }
 
 export default Menu

@@ -29,7 +29,7 @@ function GameEdit() {
     })
 
     const [select, setSelect] = useState('sceneConfig');
-    const Component = dictionary[select];
+    let Component = dictionary[select];
     // 发布游戏
     const publish = () => {
         alert(name)
@@ -38,6 +38,8 @@ function GameEdit() {
     // 选择功能
     const functionChose = (key, tagCode) => {
         setSelect(key);
+
+        Component = dictionary[select];
     }
 
     return (<div className={cssObj["main"]}>
@@ -45,7 +47,7 @@ function GameEdit() {
             <div className={cssObj["text"]}>
                 {name}
             </div>
-            <div className={cssObj["publish"]} onClick={()=>{publish()}}>
+            <div className="green-button" onClick={()=>{publish()}}>
                 发布
             </div>
         </div>
